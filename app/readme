@@ -1,0 +1,36 @@
+WellTrack: Personalized Health and Wellness Assistant
+CP3406 – Assignment 1 Part B: Code Review Presentation
+by Bao Jiatao
+Overview
+This project is part of my CP3406 Code Review Presentation. It’s based on Scenario 1 – Personalized Health and Wellness Assistant, which unifies tracking for fitness, nutrition, sleep, and mental health, helping busy users like John manage their wellbeing in one place.
+Main Features (planned)
+Sign up / Login with local Room database for secure authentication
+Personal dashboard showing wellness statistics, progress charts, and daily summaries
+Track fitness activities (steps, workouts, heart rate) using device sensors or manual input with timers
+Log meals and nutrition via barcode scanning (ML Kit) or API searches (Edamam), calculating calories and nutrients
+Monitor sleep and mental health with mood tracking, meditation timers, and stress logs
+Set personalized goals (e.g., daily steps, calorie intake, mindfulness sessions) and receive push notifications for reminders
+Generate tailored recommendations — workout plans, meal ideas, and relaxation tips based on user data
+UI design includes: tabbed bottom navigation bar, dark/light mode toggle, RecyclerView lists, and interactive charts
+UI Mockups
+UI prototypes are included to show my design ideas:
+[mockups/dashboard_mockup.kt](mockups/dashboard_mockup.kt) – Jetpack Compose preview (unified dashboard with trends chart and plans)
+[mockups/tracking_screen_mockup.html](mockups/tracking_screen_mockup.html) – HTML mockup for fitness/diet tracking
+Development Plan
+Phase	Focus	Duration
+1	Project setup & Room database integration	Week 1 (Oct 6–12)
+2	Core CRUD features + progress tracking (fitness/diet logs)	Week 2 (Oct 13–19)
+3	Mental health tools, notifications, barcode scanning (ML Kit / Edamam)	Week 3 (Oct 20–26)
+4	Personalization, testing, and polish (Agile sprints with Trello)	Week 4 (Oct 27–Nov 2)
+Strategies: Agile with weekly sprints, MoSCoW prioritization, and buffer time for API delays.
+Version Control
+Using Git Flow:
+`main` – stable releases
+`develop` – integration branch
+`feature/*` – new features (e.g., `feature/mood-tracking`)
+Commit style: Semantic commits
+Code reviews: Pull Requests before merging
+GitHub
+Repository link:
+ https://github.com/BaoJiatao/Bao-Jiatao-App
+Initial commit includes Jetpack Compose skeleton and planning documentation.
