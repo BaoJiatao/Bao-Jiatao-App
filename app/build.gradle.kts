@@ -5,7 +5,10 @@ plugins {
     id("org.jetbrains.kotlin.plugin.compose") version "2.0.20"
 
     id("com.google.dagger.hilt.android") version "2.57.2"
-    kotlin("kapt")
+    kotlin("kapt")  // 保留用于 Hilt；后期可切换 KSP
+
+    // 🔥 新增：KSP 插件（用于 Room，匹配 Kotlin 2.0.20）
+    id("com.google.devtools.ksp") version "2.0.20-1.0.25"
 }
 
 android {
@@ -14,7 +17,7 @@ android {
 
     defaultConfig {
         applicationId = "com.example.wellnessassistant"
-        minSdk = 24
+        minSdk = 26  // 提高到 26 以匹配 Health Connect 要求
         targetSdk = 34  // 回滚到 34 以最小化运行时变化（未来可升到 35）
         versionCode = 1
         versionName = "1.0"
@@ -84,12 +87,12 @@ dependencies {
 
     // Hilt
     implementation("com.google.dagger:hilt-android:2.57.2")
-    kapt("com.google.dagger:hilt-compiler:2.57.2")
+    kapt("com.google.dagger:hilt-compiler:2.57.2")  // 暂留 kapt；后期切换 KSP
 
-    // Room
+    // Room（切换到 KSP）
     implementation("androidx.room:room-runtime:2.6.1")
     implementation("androidx.room:room-ktx:2.6.1")
-    kapt("androidx.room:room-compiler:2.6.1")
+    ksp("androidx.room:room-compiler:2.6.1")  // 🔥 从 kapt 改为 ksp
 
     // Retrofit
     implementation("com.squareup.retrofit2:retrofit:2.11.0")
@@ -97,7 +100,7 @@ dependencies {
     implementation("com.squareup.okhttp3:logging-interceptor:4.12.0")
 
     // Health Connect
-    implementation("androidx.health.connect:connect-client:1.1.0-alpha07")
+    implementation("androidx.health.connect:connect-client:1.1.0")  // 升级到稳定版 1.1.0（2025.10.08）
 
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.8.1")
 
