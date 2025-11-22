@@ -22,12 +22,12 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             WellnessAssistantTheme {
-                MaterialTheme {  // ✅ 包裹在 Material3 主题中（无需 @Composable 注解）
+                MaterialTheme {
                     val navController = rememberNavController()
                     Scaffold(
                         bottomBar = { BottomNavBar(navController) }
                     ) { innerPadding: PaddingValues ->
-                        Box(modifier = Modifier.padding(innerPadding)) {  // ✅ 无需 @Composable 注解
+                        Box(modifier = Modifier.padding(innerPadding)) {
                             WellnessNavHost(navController)
                         }
                     }
